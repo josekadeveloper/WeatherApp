@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "react-accessible-accordion": "^5.0.0",
-    "react-select-async-paginate": "^0.6.2"
-  }
-}
