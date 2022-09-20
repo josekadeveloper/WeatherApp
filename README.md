@@ -3,7 +3,7 @@
 [app_logo]: prototype.PNG
 ![app_logo]
 
-App que representa el tiempo a partir de unos datos reales obtenidos
+App que representa el tiempo a partir de unos datos obtenidos
 en tiempo real de OpenWeather API y los datos de las ciudades obtenidos 
 de GeoDB Cities API, desarrollada en React Js.
 
