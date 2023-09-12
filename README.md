@@ -5,7 +5,7 @@
 
 App que representa el tiempo a partir de unos datos obtenidos
 en tiempo real de OpenWeather API y los datos de las ciudades obtenidos 
-de GeoDB Cities API, desarrollada en React Js.
+de GeoDB Cities API.
 
 Desarrollador: José Carlos De La Rosa Methvin
 
