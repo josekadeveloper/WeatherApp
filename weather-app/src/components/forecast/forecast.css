@@ -1,6 +1,7 @@
 .title {
     font-size: 23px;
     font-weight: 700;
+    padding: 15px;
 }
 
 .daily-item {
@@ -62,8 +63,20 @@
     color: #212121;
 }
 
-@media screen and (max-width: 600px) {
-    .title {
-        padding: 15px;
+@media screen and (max-width: 300px) {
+    .daily-item {
+        font-size: 10px;
     }
+
+    .icon-small {
+        width: 35px;
+    }
+    
+    .day {
+        margin-right: 10px;
+    }
+
+    .daily-details-grid-item {
+        font-size: 10px;
+    }    
 }

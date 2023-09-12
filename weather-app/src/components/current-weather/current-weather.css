@@ -4,7 +4,7 @@
     box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
     color: #fff;
     background-color: #333;
-    margin: 20px auto 0 auto;
+    margin: 10px auto 10px auto;
     padding: 0 20px 20px 20px;
 }
 
@@ -67,5 +67,26 @@
 @media screen and (max-width: 600px) {
     .weather {
         width: auto;
+    }
+
+    .city {
+        font-size: 15px;
+    }
+    
+    .weather-description {
+        font-size: 13px;
+    }
+    
+    .weather-icon {
+        width: 80px;
+    }
+    
+    .temperature {
+        font-size: 35px;
+        letter-spacing: -1px;
+    }
+    
+    .details {
+        width: 120px;
     }
 }
