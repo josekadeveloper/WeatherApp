@@ -1,13 +1,37 @@
-import './App.css';
 import Search from './components/search/search';
 import CurrentWeather from './components/current-weather/current-weather';
 import Forecast from './components/forecast/forecast';
 import { WEATHER_API_URL, WEATHER_API_KEY } from './api';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import './App.css';
 
 function App() {
   const [currentWeather, setCurrentWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
+
+  useEffect(() => {
+    const locationData = (position) => {
+      const { latitude, longitude } = position.coords;
+
+      fetch(`${WEATHER_API_URL}/weather?lat=${latitude}&lon=${longitude}&appid=${WEATHER_API_KEY}&units=metric`)
+        .then(response => response.json())
+        .then(async (data) => {
+          const weatherResponse = await data;
+
+          setCurrentWeather({ city: data.name, ...weatherResponse });
+        });
+
+      fetch(`${WEATHER_API_URL}/forecast?lat=${latitude}&lon=${longitude}&appid=${WEATHER_API_KEY}&units=metric`)
+        .then(response => response.json())
+        .then(async (data) => {
+          const forecastResponse = await data;
+
+          setForecast({ city: data.name, ...forecastResponse });
+        });
+    }
+
+    navigator.geolocation.getCurrentPosition(locationData);
+  }, []);
 
   const handleOnSearchChange = (searchData) => {
     const [lat, lon] = searchData.value.split(" ");
@@ -22,8 +46,7 @@ function App() {
 
         setCurrentWeather({ city: searchData.label, ...weatherResponse });
         setForecast({ city: searchData.label, ...forecastResponse });
-      })
-      .catch((err) => console.log(err))
+      });
   }
 
   return (
